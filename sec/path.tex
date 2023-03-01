@@ -1,0 +1,89 @@
+% !TEX root = ../noninv.tex
+
+\section{Path integral aka state sums}
+In this section we outline the construction of state-sum invariants. We will only consider `local 
+action functionals'. In our combinatorial setting this means that the action is a sum over top dimensional 
+simplicies.
+\begin{definition}
+Let $\mathcal{C}$ be a fusion $n$-category
+an exponentiated \emph{local $d$-dimensional action functional} is a functor $S\colon \mathcal{F}_\mathcal{C}(\Delta^d) \to \bC $ where
+$\bC$ is the discrete category with objects real numbers modulo integers.  \LM{There should be some linearity...}
+\end{definition}
+Given a field configuration $f\in \mathcal{F}_\mathcal{C}(X)$ we define its action $S(f)$ as the product
+over all top simplicies in the triangulation $X$ weighted with a sign corresponding to whether the branching
+structure matches with the orientation of $M$ or not:
+\begin{align}
+S(X,f)= \prod ... 
+\end{align}
+The \emph{partition function} of the non-invertible lattice gauge theory based on $S$ is the path integral
+\begin{align}
+\mathcal{Z}(X) = \int\displaylimits_{f\in \mathcal{F}_\mathcal{C}(X)} S(X,f)
+\end{align}
+where the path integral needs to be defined. We call a non-invertible lattice gauge theory \emph{topological} 
+if the resulting path integral only depends on the topology of $X$ and not the specific triangulation. \
+In the case $\cat{C}$ is finite $n$-groupoid there exist an
+essentially unique integration theory in terms of homotopy cardinality. To the best of our knowledge there
+is no theory of the type of integration needed to define the partition function in general. The types
+of sum appearing in three and four dimensional state sum models~\cite{} together with the case of higher groupoids  seem to be a good starting point for defining the relevant notions. In this paper we concretely define the
+case $n=0$, i.e. the case where the non-invertible symmetry can be described by a finite dimensional complex 
+algebra $A$. In this case a field corresponds to a labelling of all edges of the triangulation with
+elements of $A$. To define the path integral we pick a basis $\{ a_i \}$ of $A$ and sum over labelings 
+with elements of the basis. \LM{Is this independent of the choice of a basis?} weighted by a factor of $\tfrac{1}{\dim A } $ for every vertex of the triangulation. There is a natural guess on how to extend
+this to higher fusion categories. Namely by summing over a basis of simple objects, simple 1-morphisims,... 
+weighted by their dimensions. However, we will leave this to further work and restrict to the most simple example here.
+
+\begin{example}
+\LM{2D-state sum}
+\end{example}
+
+\begin{example}
+We explain how to reproduce the original Dijkgraaf-Witten theory in our framework.
+So let $G$ be a finite group and $\tau \in Z^d(G, \R/ \Z)$ a closed $d$-cochain on the standard model for group cohomology.
+In more abstract terms, it is a map $BG \to B^{d} \R/\Z$ of simplicial sets where $BG$ is seen as a simplicial set through the nerve construction.
+The twist $\tau$ is what is typically called the level for Chern-Simons theory and will be the essential input ingredient to defining the action.
+Let $X$ be a triangulation of our $d$-dimensional spacetime manifold $M$.
+To define the necessary path integrals, we will need $X$ to be finite, which is always possible in case $M$ is compact.
+
+Principal $G$-bundles over $M$ form the $1$-type
+\[
+\Map(X, BG) \cong \Pi_{\leq 1} \Map(X, BG)
+\]
+which in the current setting we can represent algebraically in a concrete way as follows.
+Objects of this groupoids are gauge fields $A$, which are defined to be labeling $1$-simplices of $X$ by elements of $G$.
+Indeed, a map $X$ to $BG$ is equivalent to a map from $1$-simplices of $X$ to $G$.
+For example, to a $2$-simplex in $X$ with edges $e_1, e_2, e_3$ it assigns the $2$-simplex $(A(e_1), A(e_3)) \in G \times G$ in $BG$.
+One can think of this $2$-simplex as having edges labeled by group elements $A(e_1), A(e_2), A(e_3)$ with the condition $A(e_2) = A(e_1) A(e_3)$. 
+For $G$ abelian, these are closed $1$-cocycles on $X$ with values in $G$.
+Explicitly this combinatorially models a principal $G$-bundle on $M$ as follows....
+Morphisms in the groupoid from $A_1$ to $A_2$ are gauge transformations $f$ between gauge fields.
+These are defined as assignments of group elements to vertices such that 
+\[
+f(v_0) A_2(e) = A_1(e) f(v_1)
+\]
+if $e$ is an edge from $v_0$ to $v_1$.
+\LS{Double check orders of elements in the above.}
+Such labelings indeed corresponds to a simplicial homotopy between the maps $A_1, A_2: X \to BG$.
+In case $G$ is abelian, this is saying that $f$ is a $0$-cochain and $A_2 = df \cdot A_1$.
+
+The action on a field $A$ is now abstractly given by pairing the top cochain defined by the composition
+\[
+X \xrightarrow{A} BG \xrightarrow{\tau} B^d \R / \Z
+\]
+with the fundamental class of $X$.
+Note that to obtain this fundamental class we need to have an orientation on $M$.
+Explicitly, the action is given by
+\[
+S(A) = \int_M A^*(\tau) = \frac{1}{|X_n|} \prod_{\sigma \in X_d} \tau(A(e_1), \dots, A(e_d))
+\]
+where $e_1, \dots, e_d$ are... \LS{Some specific edges of $\sigma$. Have to determine how $A$ maps $X_d$ to $G^d$.}
+
+To connect this example to the main text, we take $n = 0$ in which case we have to pick a fusion $0$-category $\mathcal{C}$, which is a finite-dimensional semisimple algebra.
+We take it to be the group algebra of $G$.
+A lattice gauge field as in the definition above is then an arbitrary assignment of elements of the group algebra to edges of the triangulation.
+Note that usually the fields of Dijkgraaf-Witten theory are taken to be principal $G$-bundles over $M$, so one might expect an extra cocycle condition on the assignment.
+We instead enforce this condition by taking the exponentiated action to be identically equal to zero on field configurations for which the assignment does not define a map $X \to BG$ of simplicial sets.
+\end{example}
+
+\begin{example}
+\LM{Something non-invertible in higher D which will be new. Maybe $\bC[N]$ for a monoid }
+\end{example}
