@@ -1,31 +1,88 @@
-\section{State sums} 
-\LM{summary of Anibal's visit to PI} 
-\subsection{Stat sum data and invariant on closed manifolds}
-Here we outline a definition of state sum invariants in terms of higher categories. We restrict ourselves to oriented manifolds. Generalising our techniques to other tangential structures should be extremely interesting. The target for our construction is a fully dualisable symmetric monoidal $n$-category $\mathcal{C}$. Usually we assume that the top layer, i.e. the n-fold loop category $\Omega^nC = \C $ is given by the complex numbers.   
-The starting point of our construction is the observation that to a triangulated $n$-dimensional manifold 
-$M=|X|$ together with a branching structure we can associate an $n$-category $O(X)$. The direction of top morhisms depends on the orientation of the manifold. Furthermore, this category is local in the sense that $O(X)=\operatorname{colim}_{\sigma \in X} O(\sigma)$. 
-Hence to define a `local' functor out of $O(X)$ it is enough to define functors out of the categories associated to oriented standard simplicies $\Delta_0,\dots , \Delta_n^\pm$ compatible with all inclusions between them. 
-For reasons which become clear in a moment we require these to also extend to oriented $n+1$ simplicies $\Delta_{n+1}$. Denote by $O^n$ the diagram in higher categories formed by $O(-)$ applied to all oriented simplicies up to dimension $n+1$ and embeddings between them.   
+% !TEX root = ../noninv.tex
+
+\section{State sums}
+
+Here we outline a definition of state sum invariants in terms of higher categories.
+We restrict ourselves to oriented manifolds.
+Generalizing our techniques to other tangential structures should be extremely interesting.
+The target for our construction is a fully dualizable symmetric monoidal $n$-category $\mathcal{C}$.
+Usually we assume that the top layer, i.e.
+the $n$-fold loop category $\Omega^nC = \C $ is given by the complex numbers.
+
+We begin with some recollections from higher category theory.
+
+\subsection{Street's construction}
+
+We use the recursive definition of $n$-category as a category enriched over $(n-1)$-categories, with $\omega$-categories defined as the limiting notion of these.
+The starting point of our construction is \textit{Street's diagram}
+\[
+\begin{split}
+	\cO \colon \simplex \, &\to \wCat \\
+	[n] &\mapsto \, \cO_n,
+\end{split}
+\]
+a functor from the simplex category to the category of $\omega$-categories \cite{street1987orientals}.
+Please consult \cref{s:categories} for a more detailed explanation.
+The \textit{free $\omega$-category} is the functor associating to any simplicial set $X$ the $\omega$-category
+\[
+\cO(X) = \colim_{\simplex^n \downarrow X} \, \cO_n.
+\]
+For any $\omega$-category $\cat{C}$, the collection of natural functor $\cO(X) \to \cC$ is in bijection with that of cones under $\cO$ with apex $\cat{C}$.\anibal{Maybe there is more structure than just sets.}
+
+\subsection{State sum data}
+
+We now modify the above construction slightly to study oriented manifolds.
+Let $\cO_n^\op$ denote the $n$-category obtained from $\cO_n$ by reversing the direction of the top morphism.
+Let $M$ an oriented $n$-manifold with a triangulation equipped with a branching structure.
+That is to say, a homeomorphism $M \cong \bars{X}$ where $X$ is a simplicial complex for which each simplex is equipped with a compatible order of its vertices.
+We define $\cO_X(M)$ as $\cO(X)$ with the difference that we replace $\cO_n$ by $\cO_n^\op$ for each top simplex whose intrinsic orientation -- defined by the branching structure -- disagrees with the one induced from $M$.
+
+Hence to define a `local' functor out of $O(X)$ it is enough to define functors out of the categories associated to oriented standard simplicies $\Delta_0,\dots , \Delta_n^\pm$ compatible with all inclusions between them.
+
+For reasons which become clear in a moment we require these to also extend to oriented $n+1$ simplicies $\Delta_{n+1}$.
+Denote by $O^n$ the diagram in higher categories formed by $O(-)$ applied to all oriented simplicies up to dimension $n+1$ and embeddings between them.
+
 \begin{definition}
-\emph{State sum data in $\mathcal{C}$} is a cone under the diagram $O$ in higher categories with apex $\mathcal{C}$.  
+	\emph{State sum data in $\mathcal{C}$} is a cone under the diagram $O$ in higher categories with apex $\mathcal{C}$.
 \end{definition}
-The universal property of the colimit implies that this data induces a functor $F\colon O(X)\longrightarrow C $ for every triangulation $X$ of a manifold $M$. We call the collection of all $n$-morphisms associated to top dimensional simplicies the fundamental class $\sigma_X$ of $O(X)$. Note that these morphisms are not necessarily composable in $O(X)$. They are however locally composable. The fact that $\mathcal{C}$ is fully dualisable 
-allows us to compose the image $F(\sigma)$ inside $\mathcal{C}$. Defining an endomorphism 
-$F(\sigma_X)\in \Omega^n\mathcal{C}=\C $ and hence a complex number. We define the state sum invariant $Z(M)=F(\sigma_X)$ for any triangulation $X$ of $M$. For this to be well defined we need to show that the anwser is independent of the chosen triangulation. 
+
+The universal property of the colimit implies that this data induces a functor $F\colon O(X)\longrightarrow C $ for every triangulation $X$ of a manifold $M$.
+We call the collection of all $n$-morphisms associated to top dimensional simplicies the fundamental class $\sigma_X$ of $O(X)$.
+Note that these morphisms are not necessarily composable in $O(X)$.
+They are however locally composable.
+The fact that $\mathcal{C}$ is fully dualisable
+allows us to compose the image $F(\sigma)$ inside $\mathcal{C}$.
+Defining an endomorphism
+$F(\sigma_X)\in \Omega^n\mathcal{C}=\C $ and hence a complex number.
+We define the state sum invariant $Z(M)=F(\sigma_X)$ for any triangulation $X$ of $M$.
+For this to be well defined we need to show that the anwser is independent of the chosen triangulation.
+
 \begin{theorem}
 For two different branched triangulations $X$ and $X'$ of a compact $n$-dimensional manifold $M$ we have $F(\sigma_X)=F(\sigma_{X'})$.
 \end{theorem}
-\begin{proof} 
-The proof is completely formal. Pick a branched triangulation $Y$ of $M\times I$ which is compatible with the triangulations on the boundary. The condition that the state sum data extends to $n+1$-simplicies allows us to construct a functor out of $O(Y)\longrightarrow C $. The fundamental class of $Y$ defines for us an $n+1$-morphism $F(\sigma_X)\longrightarrow F(\sigma_{X'})$. Because by assumption all $n+1$ morphisms in $\mathcal{C}$ are equalities the invariants agree. 
+\begin{proof}
+The proof is completely formal.
+Pick a branched triangulation $Y$ of $M\times I$ which is compatible with the triangulations on the boundary.
+The condition that the state sum data extends to $n+1$-simplicies allows us to construct a functor out of $O(Y)\longrightarrow C $.
+The fundamental class of $Y$ defines for us an $n+1$-morphism $F(\sigma_X)\longrightarrow F(\sigma_{X'})$.
+Because by assumption all $n+1$ morphisms in $\mathcal{C}$ are equalities the invariants agree.
+
 \end{proof}
 \begin{remark}
 \LM{Orbifold data should give examples of state sum data}
 \end{remark}
-\subsection{Examples (in 2-dimensions)} 
-\subsection{Value on lower codimensions} 
-For the following construction to work we need to assume that $\mathcal{C}$ has enough limits. 
-If we consider an oriented $d$-dimensional manifold $\Sigma$ with $d\leq n$ together with a  branched triangulation $X$ we again get from the state sum data a functor $F\colon O(X)\longrightarrow \mathcal{C}$. Evaluating the fundamental class gives us a $d$-morphism in
-$\mathcal{C}$. However, the argument which we used to show triangulation invariance above now only gives us a $d+1$-morphism from $F(\sigma_X)\longrightarrow  F(\sigma_X')$. 
-This morphism is again not independent of the triangulation chosen on $I\times \Sigma $, but can be related to other choices by considering functors out of $O(\Delta_2 \times \Sigma)$ and so on up to triangulations of $\Delta^{n-d}\times \Sigma $ which give rise to $n$-morphisms in $\mathcal{C}$. We define the value of the state sum field theory on $\Sigma$ to be the colimit over the corresponding diagram in $\mathcal{C}$. The anweser is by definition triangulation invariant. 
+\subsection{Examples (in 2-dimensions)}
+\subsection{Value on lower codimensions}
+For the following construction to work we need to assume that $\mathcal{C}$ has enough limits.
 
-In the 2-dimensional example discussed in the previous section this recovers the known description of the Hilbert space of the state sum field theory. 
+If we consider an oriented $d$-dimensional manifold $\Sigma$ with $d\leq n$ together with a  branched triangulation $X$ we again get from the state sum data a functor $F\colon O(X)\longrightarrow \mathcal{C}$.
+Evaluating the fundamental class gives us a $d$-morphism in
+$\mathcal{C}$.
+However, the argument which we used to show triangulation invariance above now only gives us a $d+1$-morphism from $F(\sigma_X)\longrightarrow  F(\sigma_X')$.
+
+This morphism is again not independent of the triangulation chosen on $I\times \Sigma $, but can be related to other choices by considering functors out of $O(\Delta_2 \times \Sigma)$ and so on up to triangulations of $\Delta^{n-d}\times \Sigma $ which give rise to $n$-morphisms in $\mathcal{C}$.
+We define the value of the state sum field theory on $\Sigma$ to be the colimit over the corresponding diagram in $\mathcal{C}$.
+The anweser is by definition triangulation invariant.
+
+
+In the 2-dimensional example discussed in the previous section this recovers the known description of the Hilbert space of the state sum field theory.

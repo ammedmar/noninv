@@ -1,27 +1,22 @@
-\immediate\write18{biber \jobname}
 \documentclass{amsart}
 \input{aux/style}
 \input{aux/usualcmds}
 \addbibresource{aux/usualpapers.bib}
+%%%%%%%%%%%%%%%%%%%%%%
+\input{aux/packages}                  % add packages here
+\input{aux/commands}                  % add commands here
+\addbibresource{aux/bibliography.bib} % add papers   here
 
 %%%%%%%%%%%%%%%%%%%%%%
 
-\input{aux/commands} % add commands here
+\title{A categorical perspective on state sum models}
+% Non-invertible Dijkgraaf--Witten theory
 
-\addbibresource{aux/bibliography.bib} % add references here
-%\usepackage{package} % add packages here
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%
-
-\title{A categorical perspective on state sum models,... Non-invertible Dijkgraaf--Witten theory}
-
-% \author[A.~Medina-Mardones]{Anibal~M.~Medina-Mardones}
+ \author[Medina-Mardones]{Anibal~M.~Medina-Mardones}
 % \address{A.M-M., Max Planck Institute for Mathematics \and University of Notre Dame}
 % \email{\href{mailto:ammedmar@mpim-bonn.mpg.de}{ammedmar@mpim-bonn.mpg.de}}
 
-% \author[L. Müller]{Lukas Müller}
+ \author[Müller]{Lukas Müller}
 % \address{Max Planck Institute for Mathematics}
 % \email{\href{mailto:youremail@somewhere.eu}{youremail@somewhere.eu}}
 
@@ -33,11 +28,12 @@
 	\input{sec/abstract}
 	\maketitle
 	\input{sec/introduction}
-	\input{sec/Background}
- \input{sec/state_sum}
-    \input{sec/Fields}
-    \input{sec/Path}
 	\input{sec/acknowledgment}
+ 	\input{sec/state_sum}
+%    \input{sec/fields}
+%    \input{sec/path}
+	\input{sec/categories}
 	\sloppy
 	\printbibliography
+	\todos
 \end{document}
