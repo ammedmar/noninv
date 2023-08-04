@@ -1,0 +1,20 @@
+\section{From triangluated manifolds to $n$-categories}
+\LM{Maybe the appendix should go here}
+
+\subsection{Street's construction}
+
+We use the recursive definition of $n$-category as a category enriched over $(n-1)$-categories, with $\omega$-categories defined as the limiting notion of these.
+The starting point of our construction is \textit{Street's diagram}
+\[
+\begin{split}
+	\cO \colon \simplex \, &\to \wCat \\
+	[n] &\mapsto \, \cO_n,
+\end{split}
+\]
+a functor from the simplex category to the category of $\omega$-categories \cite{street1987orientals}.
+Please consult \cref{s:categories} for a more detailed explanation.
+The \textit{free $\omega$-category} functor associates to any simplicial set $X$ the $\omega$-category
+\[
+\cO(X) = \colim_{\simplex^n \downarrow X} \, \cO_n.
+\]
+For any $\omega$-category $\cat{C}$, the collection of natural functors $\cO(X) \to \cC$ is in bijection with that of cones under $\cO$ with apex $\cat{C}$.\anibal{Maybe there is more structure than just sets.}

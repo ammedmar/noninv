@@ -1,44 +1,21 @@
 \section{Connection to orbifold data and Turaev-Viro state sum models} 
-Many ideas presented in this note are closely related and inspired by the orbifold construction of topological field theories~\cite{}. In this setting the higher categorical structures we try to highlight here are encoded in a non-extended topological field theory with defect. Roughly speaking these are an extension of topological field theories which can also be evaluated on stratified manifolds where the strata are allowed to be labelled.  
+Many ideas presented in this note are closely related and inspired by the orbifold construction of topological field theories~\cite{carqueville2019orbifolds}. In this setting the higher categorical structures we try to highlight here are encoded in a non-extended topological field theory with defects. Roughly speaking these are an extension of topological field theories which can also be evaluated on stratified manifolds where the strata are allowed to be labelled.  
 
-We think of the defect topological field theory as encoding the data of the higher category $\mathcal{C}$ in an implicit way. Note that also in the context of blob homology~\cite{} and the work of Ayala...~\cite{} stratified manifolds are used to describe higher (pivotal) fully dualizable categories.   
+We think of the defect topological field theory as encoding the data of the higher category $\mathcal{C}$ in an implicit way. Note that also in the context of blob homology~\cite{blob} and the work of Ayala, Francis, and Rozenblyum~\cite{Ayala2015ASH} stratified manifolds are used to describe higher (pivotal) fully dualizable categories.   
 Under this dictionary the labels of codimension $k$-strata are expected to correspond to $k$-morphisms. 
-The connection between defect field theories and pivotal categories has been made precise in dimensions 1, 2, and 3~\cite{}. 
+The connection between defect field theories and pivotal categories has been made precise in dimensions 1, 2, and 3~\cite{Davydov:2011kb,CARQUEVILLE2020107024}. 
 The goal of the orbifold construction is now to construct new topological field theories from the given defect theory. 
 The input datum for the construction are chosen defect labels $\mathcal{A}=(A_1,\dots A_n^{\pm})$ for the Poincaré dual of all simplicies up to the top dimensions. 
 For the top dimension one has to chose 2 possible labels corresponding to its two potential orientation. 
-These have to satisfy a condition we will explain later. 
+These have to satisfy conditions we will explain later. 
 If we think of the defect labels as elements in a higher category we see that orbifold data exactly correspond to oriented state sum data as we defined it above. 
 The orbifold construction now proceeds to define invariants of $n$-dimensional manifolds by picking a triangulation of them and labelling the Poincaré dual cell decomposition with the fixed orbifold datum $\mathcal{A}$. 
 Now the partition function of the orbifold theory evaluated on $M$ is the value of the defect field theory on this stratified manifold. 
-Using the dictionary that evaluation of via the defect field theory corresponds to the composition of morphisms this exactly reproduces the state sum invariant we defined above. 
+Using the dictionary that evaluation of the defect field theory corresponds to the composition of morphisms this exactly reproduces the state sum invariant we defined above. 
 Our work can be understood as making the higher categorical structures underlying the orbifold construction in terms explicit in terms of orientals. 
 These have so far largely been implicit. 
-However, we note that there is some work in low dimensions~\cite{}\cite{}.    
+However, we note that there is some work in low dimensions~\cite{carqueville2016orbifoldcompletion,3DOrb}.    
 
-We will use this connection between the categorical state sum models and orbifold construction to show how Turaev-Viro models fit into the framework we started to develope in these notes. 
-For this we use a specific choice for $\mathcal{C}$ namely the Euler completion of the delooping $B\CYCat$ of semi-simple Calabi-Yau categories which we define now:
+We now explain how this can be used to conclude that the state sum model build in Section~\ref{sec:3D} reproduces the Turaev-Viro model.
+The number this assigns to a branched triangulated manifold is directly seen to agree with the one constructed via the orbifold construction from a spherical fusion category. The closesed exposit to the situation here is Section 5.2 of~\cite{3DOrb} which is based on~\cite{Carqueville:2018sld}. Hence we can conclude from the results in~\cite{Carqueville:2018sld} that the invariance defined in Section~\ref{sec:3D} is triangulation independent and recovers the Turaev-Viro state sum model. 
 
-\begin{definition}
-	A \emph{semisimple Calabi--Yau category} is a semi-simple linear category $\Ca$ with finitely many simple objects together with a linear 
-	trace map $\operatorname{tr}_c \colon \End (c) \longrightarrow \C$ for each $c\in \Ca$ such that  
-	\begin{itemize}
-		\item 
-		for all morphisms $f\colon c \longrightarrow c'$ and $g\colon c' \longrightarrow c$ in $\Ca$ the relation $\operatorname{tr}_{c'}(f\circ g)= \operatorname{tr}_c({g\circ f})$ holds, and
-		\item 
-		for all $c,c'\in \Ca$ the pairing $\Ca(c,c') \otimes \Ca(c',c) \xrightarrow{\  \circ  \ } \Ca(c,c) \xrightarrow{\operatorname{tr}_c} \C$ is non-degenerate. 
-	\end{itemize}
-	A \emph{Calabi--Yau functor} $\mathcal{F} \colon (\Ca, \operatorname{tr}) \longrightarrow (\Ca' , \operatorname{tr}')$ is a linear functor $\mathcal{F}$ such that $\operatorname{tr}_c(f)= \operatorname{tr}'_{\mathcal{F}(c)}(\mathcal{F}(f)) $ for all $c\in \Ca$ and $f\in \End(c)$. We denote by 
-	$\CYCat$ the symmetric monoidal 2-category of semisimple Calabi--Yau categories, linear functors and natural transformations.
-\end{definition} 
-
-The Euler completion $E(B\CYCat)$ is defined in~\cite{3DOrb} and effectively allows one to include certain normalisation factors into the state sum model we construct later. 
-\LM{More details} 
-The Turaev-Viro construction is based on a spherical fusion category
-\begin{definition}
-    spherical fusion category....
-\end{definition}
-\begin{example}
-    ??
-\end{example}
-Let $\mathcal{S}$ be a spherical fusion category the trace defines a canonical Calabi-Yau structure on $\mathcal{S}$ and hence $\mathcal{S}$ is an associative algebra in $\CYCat$ which we can use to define state sum data in $\Ca$ as by sending the unique point in $\mathcal{O}_0$ to $(*,\dim (S)^{-\tfrac{1}{2}})$, where $\dim S = ...$ is the dimension of $S$. The 1-morphism in $\mathcal{O}_1$ is send to $S$ with its Calabi-Yau structure coming from the spherical trace. The 2-morphism in $\mathcal{O}_2$ is send to the tensor product functor $\otimes \colon S\boxtimes S \to S$. The 3-morphism in $\mathcal{O}_3^+$ is send to the associator and finally the 3-morphism in $\mathcal{O}_3^-$ to its inverse. The number this assigns to a branched triangulated manifold is directly seen to agree with the one constructed via the orbifold construction from a spherical fusion category. The closesed exposit to the situation here is Section 5.2 of~\cite{3DOrb} which is based on~\cite{}. Hence we can conclude from the results in~\cite{} that this is triangulation independent and recovers the Turaev-Viro state sum model. 

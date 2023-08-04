@@ -24,7 +24,7 @@ Morphisms of globular sets are maps of diagrams.
 We refer to the elements in $X_n$ as \textit{$n$-cells} and define for $0 \leq k < n$ the \textit{$k$-source} and \textit{$k$-target maps} $s_k,t_k \colon X_n \to X_k$ as the unique maps that respectively factor through $s_k,t_k \colon X_{k+1} \to X_k$.
 Consult \cref{f:globes} for basic examples.
 
-The group $\rT^\infty$ acts on the category of globular sets by permuting source and target maps.
+The group $\rT^\infty := \Z_2^\mathbb{N}$ acts on the category of globular sets by permuting source and target maps.
 
 \begin{figure}
 	\input{sec/globe}
@@ -61,7 +61,9 @@ See \cite[\S1.6]{forest2022pasting} for another presentation of these ideas.
 
 \subsubsection{Cells}
 
-We will naturally assign a globular set $\cells(C)$ to a based chain complex $C$ as follows.
+Let $C$ be a based chain complex, i.e. a chain complex of free abelian groups together with a chosen basis.
+Denote the natural augmentation map by $\aug: C \to \Z$.
+We will naturally assign a globular set $\cells(C)$ to $C$ as follows.
 An $n$-cell in $\cells(C)$ is an $(2n+1)$-tuple
 \[
 (c_0^-,c_0^+,\dots,c_{n-1}^-,c_{n-1}^+,c_n)

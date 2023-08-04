@@ -12,23 +12,7 @@ the $n$-fold loop category $\Omega^nC = \C $ is given by the complex numbers.
 
 We begin with some recollections from higher category theory.
 
-\subsection{Street's construction}
 
-We use the recursive definition of $n$-category as a category enriched over $(n-1)$-categories, with $\omega$-categories defined as the limiting notion of these.
-The starting point of our construction is \textit{Street's diagram}
-\[
-\begin{split}
-	\cO \colon \simplex \, &\to \wCat \\
-	[n] &\mapsto \, \cO_n,
-\end{split}
-\]
-a functor from the simplex category to the category of $\omega$-categories \cite{street1987orientals}.
-Please consult \cref{s:categories} for a more detailed explanation.
-The \textit{free $\omega$-category} functor associates to any simplicial set $X$ the $\omega$-category
-\[
-\cO(X) = \colim_{\simplex^n \downarrow X} \, \cO_n.
-\]
-For any $\omega$-category $\cat{C}$, the collection of natural functors $\cO(X) \to \cC$ is in bijection with that of cones under $\cO$ with apex $\cat{C}$.\anibal{Maybe there is more structure than just sets.}
 
 \subsection{State sum data}
 
@@ -38,7 +22,8 @@ Let $M$ an oriented $n$-manifold with a triangulation equipped with a branching 
 That is to say, a homeomorphism $M \cong \bars{X}$ where $X$ is a simplicial complex for which each simplex is equipped with a compatible order of its vertices.
 We define $\cO_X(M)$ as $\cO(X)$ with the difference that we replace $\cO_n$ by $\cO_n^\op$ for each top simplex whose intrinsic orientation -- defined by the branching structure -- disagrees with the one induced from $M$.
 
-Hence to define a `local' functor out of $\mathcal{O}(X)$ it is enough to define functors out of the categories associated to oriented standard simplicies $\Delta_0,\dots , \Delta_n^\pm$ compatible with all inclusions between them.
+Hence to define a functor out of $\mathcal{O}(X)$ natural in $X$ it is enough to define functors out of the categories associated to oriented standard simplicies $\Delta_0,\dots , \Delta_n^\pm$ compatible with all inclusions between them.
+We think of such functors as being local.
 
 For reasons which become clear in a moment we require these to also extend to oriented $n+1$ simplicies $\Delta_{n+1}$.
 Denote by $O^n$ the diagram in higher categories formed by $O(-)$ applied to all oriented simplicies up to dimension $n+1$ and embeddings between them.
@@ -72,17 +57,8 @@ Because by assumption all $n+1$ morphisms in $\mathcal{C}$ are equalities the in
 \begin{remark}
 \LM{Orbifold data should give examples of state sum data}
 \end{remark}
-\subsection{Examples (in 2-dimensions)}
 
-\[
-\begin{tikzcd}
-\mathcal{O}(\Delta^+_2)    & &
-\\
-& \mathcal{O}(\Delta^1) \ar[lu, bend right = 25, shorten <=0.2cm, shorten >=0.2cm] \ar[lu, bend left = 25, shorten <=0.2cm, shorten >=0.2cm] \ar[lu] \ar[ld, bend right = 25, shorten <=0.2cm, shorten >=0.2cm] \ar[ld, bend left = 25, shorten <=0.2cm, shorten >=0.2cm] \ar[ld] & \mathcal{O}(\Delta^0) \ar[l, bend left=20] \ar[l, bend right=20]
-\\
-\mathcal{O}(\Delta^-_2) & &
-\end{tikzcd}
-\]
+
 
 \subsection{Value on lower codimensions}
 For the following construction to work we need to assume that the $n$-category $\mathcal{C}$ has enough limits.
@@ -97,4 +73,4 @@ We define the value of the state sum field theory on $\Sigma$ to be the colimit 
 The answer is by definition triangulation invariant.
 
 
-In the 2-dimensional example discussed in the previous section this recovers the known description of the Hilbert space of the state sum field theory.
+In the 2-dimensional example discussed in the previous section this recovers the known description of the vector space of the state sum field theory.
