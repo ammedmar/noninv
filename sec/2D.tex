@@ -1,28 +1,47 @@
-\section{Examples in 2 dimensions} 
+\section{Examples in 2 dimensions}
 
-Let $\mathcal{C} := B\Vect$ denote the $2$-category that deloops the monoidal category of finite-dimensional vector spaces.
-Explicitly, is has a single object $*$ with endomorphism category given by $\Vect$. 
+Let $\cC := B\Vect$ denote the $2$-category that deloops the monoidal category of finite-dimensional vector spaces.
+Explicitly, is has a single object $*$ with endomorphism category given by $\Vect$.
 Horizontal composition is given by the tensor product of vector spaces.
-We spell out what are state sum models with values in $\mathcal{C}$.
-Since $\mathcal{C}$ has a single object, we assign to vertices $* \in \mathcal{C}$.
-To edges we assign a single vector space $A \in \End_\mathcal{C} *$.
+We spell out what are state sum models with values in $\cC$.
+Since $\cC$ has a single object, we assign to vertices $* \in \cC$.
+To edges we assign a single vector space $A \in \End_\cC *$.
 Finally we have to assign linear maps $\mu, \Delta$ to the $2$-simplex with its two different orientations $\Delta^-_2, \Delta^+_2$.
 Next we have to require compatibility of this assignment with the maps in the oriented version of Street's diagram:
 \[
 \begin{tikzcd}
-\mathcal{O}(\Delta^+_2)    & &
+\oriental(\Delta^+_2)    & &
 \\
-& \mathcal{O}(\Delta^1) \ar[lu, bend right = 25, shorten <=0.2cm, shorten >=0.2cm] \ar[lu, bend left = 25, shorten <=0.2cm, shorten >=0.2cm] \ar[lu] \ar[ld, bend right = 25, shorten <=0.2cm, shorten >=0.2cm] \ar[ld, bend left = 25, shorten <=0.2cm, shorten >=0.2cm] \ar[ld] & \mathcal{O}(\Delta^0) \ar[l, bend left=20] \ar[l, bend right=20]
+& \oriental(\Delta^1) \ar[lu, bend right = 25, shorten <=0.2cm, shorten >=0.2cm] \ar[lu, bend left = 25, shorten <=0.2cm, shorten >=0.2cm] \ar[lu] \ar[ld, bend right = 25, shorten <=0.2cm, shorten >=0.2cm] \ar[ld, bend left = 25, shorten <=0.2cm, shorten >=0.2cm] \ar[ld] & \oriental(\Delta^0) \ar[l, bend left=20] \ar[l, bend right=20]
 \\
-\mathcal{O}(\Delta^-_2) & &
+\oriental(\Delta^-_2) & &
 \end{tikzcd}
 \]
 This will tell us that the linear maps assigned to the two $2$-simplices will have source and target $\mu: A \otimes A \to A, \Delta: A \to A \otimes A$.
 
 Now recall that for a two-dimensional state-sum model, we require the condition that it extends to oriented simplices in dimension three:
 
-\begin{lemma}
-    The data $(A,\mu,\Delta)$ defines a two-dimensional state-sum model if and only if it is a (non-unital and non-counital) $\Delta$-separable\footnote{The notion of $\Delta$-separable is unrelated to the notion of a separable algebra (right?!)} symmetric Frobenius algebra, i.e.
+\begin{definition}
+	Let $(A, \mu)$ be an associative algebra and $(A,\Delta)$ a coassociative coalgebra.
+	The triple $(A,\mu,\Delta)$ is \textit{$\Delta$-separable} if
+	\[
+	\mu \circ \Delta = \id_A.
+	\]
+	The triple $(A,\mu,\Delta)$ satisfies the \textit{Frobenius condition} if
+	\[
+	(\id_A \otimes \mu) \circ (\Delta \otimes \id_A) = \Delta \circ \mu = (\mu \otimes \id_A) \circ (\id_A \otimes \Delta).
+	\]
+	We say $(A,\mu)$ is unital ... and counital ...
+	A Frobenius algebra is ...
+	It is \textit{symmetric} if ...
+\end{definition}
+
+\begin{theorem}
+
+\end{theorem}
+
+\begin{theorem}
+    The data $(A, \mu, \Delta)$ defines a two-dimensional state-sum model if and only if it is a (non-unital and non-counital) $\Delta$-separable\footnote{The notion of $\Delta$-separable is unrelated to the notion of a separable algebra (right?!)} symmetric Frobenius algebra, i.e.
     \begin{itemize}
         \item $\mu$ is associative
         \item $\Delta$ is coassociative
@@ -30,7 +49,8 @@ Now recall that for a two-dimensional state-sum model, we require the condition 
         \item Frobenius: $\Delta \circ \mu = (\id_A \otimes \mu) \circ (\Delta \otimes \id_A) = (\mu \otimes \id_A) \circ (\id_A \otimes \Delta)$
         \item symmetric:\textcolor{red}{What does symmetric mean non-unitally and how does it arise?}
     \end{itemize}
-\end{lemma}
+\end{theorem}
+
 \LM{Not so sure about the if and only if}
 \begin{proof}
     This result is closely related to \cite[Proposition 3.4]{carqueville2016orbifoldcompletion}....

@@ -1,22 +1,22 @@
 \section{Examples in 3 dimensions and Turaev-Viro theories}\label{sec:3D}
-We will outline how the categorical state sum models can recover Turaev-Viro models. The proof that our construction reproduces Turaev-Viro theories relies on the connection to orbifold constructions we discuss in the next section. 
-For this we use a specific choice for $\mathcal{C}$ namely the Euler completion of the delooping $B\CYCat$ of semi-simple Calabi-Yau categories which we define now:
+We will outline how the categorical state sum models can recover Turaev-Viro models. The proof that our construction reproduces Turaev-Viro theories relies on the connection to orbifold constructions we discuss in the next section.
+For this we use a specific choice for $\cC$ namely the Euler completion of the delooping $B\CYCat$ of semi-simple Calabi-Yau categories which we define now:
 
 \begin{definition}
-	A \emph{semisimple Calabi--Yau category} is a semi-simple linear category $\Ca$ with finitely many simple objects together with a linear 
-	trace map $\operatorname{tr}_c \colon \End (c) \longrightarrow \C$ for each $c\in \Ca$ such that  
+	A \emph{semisimple Calabi--Yau category} is a semi-simple linear category $\Ca$ with finitely many simple objects together with a linear
+	trace map $\operatorname{tr}_c \colon \End (c) \longrightarrow \C$ for each $c\in \Ca$ such that
 	\begin{itemize}
-		\item 
+		\item
 		for all morphisms $f\colon c \longrightarrow c'$ and $g\colon c' \longrightarrow c$ in $\Ca$ the relation $\operatorname{tr}_{c'}(f\circ g)= \operatorname{tr}_c({g\circ f})$ holds, and
-		\item 
-		for all $c,c'\in \Ca$ the pairing $\Ca(c,c') \otimes \Ca(c',c) \xrightarrow{\  \circ  \ } \Ca(c,c) \xrightarrow{\operatorname{tr}_c} \C$ is non-degenerate. 
+		\item
+		for all $c,c'\in \Ca$ the pairing $\Ca(c,c') \otimes \Ca(c',c) \xrightarrow{\  \circ  \ } \Ca(c,c) \xrightarrow{\operatorname{tr}_c} \C$ is non-degenerate.
 	\end{itemize}
-	A \emph{Calabi--Yau functor} $\mathcal{F} \colon (\Ca, \operatorname{tr}) \longrightarrow (\Ca' , \operatorname{tr}')$ is a linear functor $\mathcal{F}$ such that $\operatorname{tr}_c(f)= \operatorname{tr}'_{\mathcal{F}(c)}(\mathcal{F}(f)) $ for all $c\in \Ca$ and $f\in \End(c)$. We denote by 
+	A \emph{Calabi--Yau functor} $\mathcal{F} \colon (\Ca, \operatorname{tr}) \longrightarrow (\Ca' , \operatorname{tr}')$ is a linear functor $\mathcal{F}$ such that $\operatorname{tr}_c(f)= \operatorname{tr}'_{\mathcal{F}(c)}(\mathcal{F}(f)) $ for all $c\in \Ca$ and $f\in \End(c)$. We denote by
 	$\CYCat$ the symmetric monoidal 2-category of semisimple Calabi--Yau categories, linear functors and natural transformations.
-\end{definition} 
+\end{definition}
 
-The Euler completion $E(B\CYCat)$ is defined in~\cite{3DOrb} and effectively allows one to include certain normalisation factors into the state sum model we construct later. 
-\LM{More details} 
+The Euler completion $E(B\CYCat)$ is defined in~\cite{3DOrb} and effectively allows one to include certain normalisation factors into the state sum model we construct later.
+\LM{More details}
 The Turaev-Viro construction is based on a spherical fusion category
 \begin{definition}
     spherical fusion category....
@@ -24,4 +24,4 @@ The Turaev-Viro construction is based on a spherical fusion category
 \begin{example}
     ??
 \end{example}
-Let $\mathcal{S}$ be a spherical fusion category the trace defines a canonical Calabi-Yau structure on $\mathcal{S}$ and hence $\mathcal{S}$ is an associative algebra in $\CYCat$ which we can use to define state sum data in $\Ca$ by sending the unique point in $\mathcal{O}_0$ to $(*,\dim (S)^{-\tfrac{1}{2}})$, where $\dim S = ...$ is the dimension of $S$. The 1-morphism in $\mathcal{O}_1$ is send to $S$ with its Calabi-Yau structure coming from the spherical trace. The 2-morphism in $\mathcal{O}_2$ is send to the tensor product functor $\otimes \colon S\boxtimes S \to S$. The 3-morphism in $\mathcal{O}_3^+$ is send to the associator and finally the 3-morphism in $\mathcal{O}_3^-$ to its inverse. 
+Let $\mathcal{S}$ be a spherical fusion category the trace defines a canonical Calabi-Yau structure on $\mathcal{S}$ and hence $\mathcal{S}$ is an associative algebra in $\CYCat$ which we can use to define state sum data in $\Ca$ by sending the unique point in $\oriental_0$ to $(*,\dim (S)^{-\tfrac{1}{2}})$, where $\dim S = ...$ is the dimension of $S$. The 1-morphism in $\oriental_1$ is send to $S$ with its Calabi-Yau structure coming from the spherical trace. The 2-morphism in $\oriental_2$ is send to the tensor product functor $\otimes \colon S\boxtimes S \to S$. The 3-morphism in $\oriental_3^+$ is send to the associator and finally the 3-morphism in $\oriental_3^-$ to its inverse.
