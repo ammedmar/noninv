@@ -1,46 +1,50 @@
 % !TEX root = ../noninv.tex
 
-\section{Categories of fields and actions} 
+\section{Categories of fields and actions}
+
+LUUK
+
+Goal: Explain how the previous sections can be expressed as a sum over fields. Introduce notion of fields, actions and integration. Maybe comment on non-invertible gauge theories. Connection to DW theory.
 
 In traditional Dijkgraaf--Witten theory the fields are principal bundles for a finite
-group $G$. These form a groupoid $\Bun_G$ with morphisms given by gauge 
+group $G$. These form a groupoid $\Bun_G$ with morphisms given by gauge
 transformations. An alternative, but equivalent, description of the collection of all fields on a manifold $M$ is as the mapping space $\Map(M,BG)$. The connection
 between the two description is through the homotopy hypothesis~\cite{} which is
 an equivalence between $\infty$-groupoids and topological spaces. Concretely,
-the space $\Map(M,BG)$ is aspherical and its fundamental groupoud $\Pi_1 
+the space $\Map(M,BG)$ is aspherical and its fundamental groupoud $\Pi_1
 (\Map(M,BG))$ is equivalent to $\Bun_G(M)$.
-This has an explicit description in terms of a triangulation of $X$ of $M$. 
+This has an explicit description in terms of a triangulation of $X$ of $M$.
 
-\color{red} Mention cochains and lattice field theories. Note that this actually 
+\color{red} Mention cochains and lattice field theories. Note that this actually
 depends on the triangulation \color{black}
 
 The first task in our construction of non-invertible Dijkgraaf--Witten theory
 is to find an appropriate generalisation of the space of fields. A first guess
 on how to overcome this problem is to work with higher categories instead of
-(higher) groupoids. For example when one replaces the finite group $G$ by an 
+(higher) groupoids. For example when one replaces the finite group $G$ by an
 finite dimensional algebra $A$, it is natural to consider the the linear category
-$BA$ as a natural replacement of $BG$. However, the problem with this is 
-that any map from $M$ to $BA$ will automatically factor through the full 
-subgroupoid of $BA$. Alternativly, one might try to consider the space or 
-$\infty$-groupoid constructed by geometrically realising $BA$. The geometric 
-realisation is a concrete way of constructed the localisation of $BA$ at all 
-morphisms. A gauge theory based on the geometric realisation $|BA|$ replaces the 
-non-invertible gauge structure by a higher gauge group $|BA|$. Higher gauge 
-theoretic versions of Dijkgraaf--Witten theory have been studied 
-extensively~\cite{some thing}, but are not what we are interested in here. 
+$BA$ as a natural replacement of $BG$. However, the problem with this is
+that any map from $M$ to $BA$ will automatically factor through the full
+subgroupoid of $BA$. Alternativly, one might try to consider the space or
+$\infty$-groupoid constructed by geometrically realising $BA$. The geometric
+realisation is a concrete way of constructed the localisation of $BA$ at all
+morphisms. A gauge theory based on the geometric realisation $|BA|$ replaces the
+non-invertible gauge structure by a higher gauge group $|BA|$. Higher gauge
+theoretic versions of Dijkgraaf--Witten theory have been studied
+extensively~\cite{some thing}, but are not what we are interested in here.
 
 We propose a different approach to overcome these problems which generalises the
-lattice formulation outlined above. The key observation is that as explained in 
-Section~... to a triangulation together with a branching structure one can naturally associate an $d$-category $\Or(X)$. Restricting to the $n$-skeleton  
-of $X$ gives a $n$-category $\Or_n(X)$. 
+lattice formulation outlined above. The key observation is that as explained in
+Section~... to a triangulation together with a branching structure one can naturally associate an $d$-category $\Or(X)$. Restricting to the $n$-skeleton
+of $X$ gives a $n$-category $\Or_n(X)$.
 \begin{definition}
-Let $\mathcal{C}$ be a fusion $n$-category and $X$ a triangulation together with 
+Let $\mathcal{C}$ be a fusion $n$-category and $X$ a triangulation together with
 the choice of branching structure a triangulation of an oriented $d$-dimensional manifold.
-The linear $n+1$-category $\mathcal{F}_\mathcal{C}(X)$ of 
-\emph{$\mathcal{C}$-lattice gauge fields on $X$} is the category of functors from $\Or_{n+1}(X)$ to the $n+1$-category $B\mathcal{C}$, which is the delooping of $\mathcal{C}$. 
+The linear $n+1$-category $\mathcal{F}_\mathcal{C}(X)$ of
+\emph{$\mathcal{C}$-lattice gauge fields on $X$} is the category of functors from $\Or_{n+1}(X)$ to the $n+1$-category $B\mathcal{C}$, which is the delooping of $\mathcal{C}$.
 \end{definition}
 
-\color{red} 
+\color{red}
 Explicit description and relation to DW.
 
 I should really read the stuff on higher Segal spaces, again \color{black}
