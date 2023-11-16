@@ -1,6 +1,10 @@
 \section{Examples in 3 dimensions and Turaev-Viro theories}\label{sec:3D}
-We will outline how the categorical state sum models can recover Turaev-Viro models. The proof that our construction reproduces Turaev-Viro theories relies on the connection to orbifold constructions we discuss in the next section.
-For this we use a specific choice for $\cC$ namely the Euler completion of the delooping $B\CYCat$ of semi-simple Calabi-Yau categories which we define now:
+
+LUKAS
+
+In this section we will explain how the higher categorical perspective on state sum models proposed here can be used recover the well known Turaev-Viro model. The proof that the Street cone constructed in this section defines state sum data relies on the connection to the orbifold construction which we discuss in the next section.
+
+Before we can try to construct 3-dimensional state sum data we need to fix an appropriate pivotal 3 category $\cC$. For this we will use the Euler completion of the delooping $B\CYCat$ of semi-simple Calabi-Yau categories~\cite{3DOrb} which we define now:
 
 \begin{definition}
 	A \emph{semisimple Calabi--Yau category} is a semi-simple linear category $\Ca$ with finitely many simple objects together with a linear
@@ -11,12 +15,16 @@ For this we use a specific choice for $\cC$ namely the Euler completion of the d
 		\item
 		for all $c,c'\in \Ca$ the pairing $\Ca(c,c') \otimes \Ca(c',c) \xrightarrow{\  \circ  \ } \Ca(c,c) \xrightarrow{\operatorname{tr}_c} \C$ is non-degenerate.
 	\end{itemize}
-	A \emph{Calabi--Yau functor} $\mathcal{F} \colon (\Ca, \operatorname{tr}) \longrightarrow (\Ca' , \operatorname{tr}')$ is a linear functor $\mathcal{F}$ such that $\operatorname{tr}_c(f)= \operatorname{tr}'_{\mathcal{F}(c)}(\mathcal{F}(f)) $ for all $c\in \Ca$ and $f\in \End(c)$. We denote by
-	$\CYCat$ the symmetric monoidal 2-category of semisimple Calabi--Yau categories, linear functors and natural transformations.
+We denote by $\CYCat$ the symmetric monoidal 2-category of semisimple Calabi--Yau categories, linear functors and natural transformations. The tensor product is the Delegine product which we denote by $\boxtimes$. 
 \end{definition}
+The trace is required to make $\CYCat$ a pivotal category, see~\cite[Proposition 5.6]{3DOrb}.  
 
-The Euler completion $E(B\CYCat)$ is defined in~\cite{3DOrb} and effectively allows one to include certain normalisation factors into the state sum model we construct later.
-\LM{More details}
+The Euler completion $E(B\CYCat)$ is defined in~\cite[Section 5.1.3]{3DOrb} and effectively allows one to include certain normalisation factors into the state sum model we construct later. Its objects consist of a pair of an object in $B\CYCat$ and of which there is only one $*$ and an invertible endomorphism $\psi \in \operatorname{Aut} (\id_{\id_*})=\C^\times$. The composition of morphisms is not influenced by introducing these aditional objects. However, they change the pivotal structure such that powers of $\psi$ will be inserted in bubbles. We need this small adjustment to get the right normalization factors. For more details we refere to~\cite[Section 5.1.3]{3DOrb}.  
+
+Let us now turn to oriented Street 3-cones with values in $E(B\CYCat)$. They consist of an inevitable complex number specifying the functor $\oriental_0 \to E(B\CYCat)$. A compatible functor $\oriental_1 \to E(B\CYCat)$ is completely detriment by specifying a Calabi-Yau category $\cC$. A functor out of $\oriental_2$ compatible with the choices so far corresponds to a functor $\otimes \colon \cC \boxtimes \cC \to \cC$. Finally there are two natural transformations $\alpha_+\colon \otimes \circ (\otimes \boxtimes \id ) \Longrightarrow \otimes \circ (\id \boxtimes \otimes )$ and $\alpha_-\colon \otimes \circ (\id \boxtimes \otimes ) \Longrightarrow \otimes \circ (\otimes \boxtimes \id )$ which correspond to the functors out of $\oriental_3^+$ and $\oriental_3^-$, respectively.    
+
+Specifying this data allows us to define an invariant of triangulated 3-dimensional manifolds. For this Street cone to be extendable  
+
 The Turaev-Viro construction is based on a spherical fusion category
 \begin{definition}
     spherical fusion category....
