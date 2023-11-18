@@ -89,8 +89,8 @@ A \textit{triangulation} of $M$ is a homeomorphism $M \cong \bars{X}$, where $X$
 Let $M \cong \bars{X}$ be a triangulated $n$-manifold.
 Since any simplex is contained in a non-degenerate $n$-simplex, and any two such share at most a single non-degenerate $(n-1)$-simplex we have that
 \[
-X = \colim_{\simplex \downarrow X}
-  = \textstyle \colim \left(\bigsqcup_{X_{n-1}^\nd} \Delta^{n-1} \rightrightarrows \bigsqcup_{X_n^\nd} \Delta^n \right).
+X \cong \colim_{\simplex \downarrow X}
+  \cong \textstyle \colim \left(\bigsqcup_{X_{n-1}^\nd} \Delta^{n-1} \rightrightarrows \bigsqcup_{X_n^\nd} \Delta^n \right).
 \]
 
 \subsection{Orientations}
@@ -104,7 +104,7 @@ We write $X_{n,+}^\nd$ and $X_{n,-}^\nd$ for the associated partition of $X_n^\n
 Let $M \cong \bars{X}$ be a triangulated $n$-manifold with a chosen orientation $\theta$.
 We define its \textit{oriented categorical realization} as
 \[
-\oriental_\theta(X) =
+\oriental_\theta(X) \defeq
 \textstyle \colim \left(\bigsqcup_{X_{n-1}^\nd} \oriental_{n-1} \rightrightarrows \bigsqcup_{X_{n,+}^\nd} \oriental_n \sqcup \bigsqcup_{X_{n,-}^\nd} \oriental_n^\op \right).
 \]
 Figure ...
