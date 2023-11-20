@@ -2,9 +2,15 @@
 
 \section{State sum data}
 
-\subsection{Oriented Street diagrams}
+\subsection{Categorical cones}
 
-The \textit{Street $n$-dimensional semi-simplicial diagram}, or \textit{$n^\th$ Street diagram} for short, is given by
+A \textit{diagram} in $\cC$ is a functor $F \colon \cJ \to \cC$ from a small category $\cJ$.
+A \textit{cone} under $D$ with \textit{vertex} $c$ is a natural transformation from $F$ to the constant functor with value $c$.
+
+\subsection{Street diagrams}
+
+The \textit{$n$-truncated Street diagram} is the restriction of the Street functor $\oriental$ to the $n$-truncation of the delta category.
+Diagrammatically it is given by
 \[
 \begin{tikzcd}
 	\oriental_0
@@ -15,7 +21,7 @@ The \textit{Street $n$-dimensional semi-simplicial diagram}, or \textit{$n^\th$ 
 	\oriental_{n} \ .
 \end{tikzcd}
 \]
-Simplifying the description of this diagram to
+Simplifying the depiction of this diagram to
 \[
 \begin{tikzcd}
 	\oriental_0
@@ -24,7 +30,7 @@ Simplifying the description of this diagram to
 	\arrow[r, Rightarrow] & \oriental_n \ ,
 \end{tikzcd}
 \]
-The \textit{oriented $n^\th$ Street diagram} is given by
+we define its \textit{oriented} version as
 \[
 \begin{tikzcd}[column sep=small, row sep=0]
 	& & & &[-5pt] \oriental_n \ \ \\
@@ -36,6 +42,12 @@ The \textit{oriented $n^\th$ Street diagram} is given by
 	& & & & \oriental_n^\op \ .
 \end{tikzcd}
 \]
+
+\subsection{Street cones}
+
+An (\textit{oriented}) \textit{Street $n$-cone} is a cone under the $n$-truncated (oriented) Street diagram.
+
+By the universal property of colimits, an (oriented) Street $n$-cone with vertex $\cC$ induces an $n$-functor $\cO(X) \to \cC$ (resp. $\cO_\theta(X) \to \cC$) for any triangulated $n$-manifold $M \cong \bars{X}$ (with orientation $\theta$).
 
 \subsection{Extendable Street cones}
 
