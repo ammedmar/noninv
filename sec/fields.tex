@@ -4,23 +4,137 @@
 
 LUUK
 
-Goal: Explain how the previous sections can be expressed as a sum over fields. Introduce notion of fields, actions and integration. Maybe comment on non-invertible gauge theories. Connection to DW theory.
+In traditional gauge theory, physicists consider the collection $\mathcal{F}$ of connections on a principal $G$-bundles $P \to M$ for a Lie group $G$.
+Here $M^n$ is an $n$-dimensional spacetime manifold and connections are typically called gauge fields.
+One then identifies connections $A_1, A_2 \in \mathcal{F}$ if they are related by a gauge transformation $g \in \mathcal{G}$, i.e. a bundle automorphism of $P$.
+In quantum field theory, one is lead to ponder the meaning of integrals over the space of gauge fields modulo gauge transformations
+\begin{equation}
+    \label{eq:pathintegral}
+Z(M) = \int_{\mathcal{F}/\mathcal{G}} e^{-S(A)} \mathcal{D} A,
+\end{equation}
+weighted by the action map $S: \mathcal{F}/\mathcal{G} \to \C$.
 
-Open question: what is a field for general state-sum data?
+Because $\mathcal{F}$ is infinite-dimensional, it is in general a difficult open problem to make sense of integrals of the above type.
+However, if $M \cong |X|$ comes with a specified triangulation, we could consider replacing previously considered continuum gauge fields with combinatorial gauge fields assigned to simplices.
+This approach is followed in lattice field theories such as lattice quantum chromodynamics.
+We are interested in the case where the combinatorial data is sufficiently finite, so that we can define the path integral \ref{eq:pathintegral} as a state sum.
+Our aim is to put these sums into the formalism of Section \ref{sec:statesum}.
 
-Open question: what is a field for general state-sum data?
+For this, we start by discussing Dijkgraaf-Witten theory.
+We will rediscover special cases of the examples we discussed in Sections \ref{sec:2D} and \ref{sec:3D} in a more physical framework, compare \cite[Sections 3 and 4]{freed2009topological}.
+So let us consider a gauge theory on $M = |X|$ for $G$ a finite group.
+ In that case, every principal $G$-bundle $P$ has a unique connection and $\mathcal{F}/\mathcal{G} = H^1(M,G)$ is a finite set given by the collection of isomorphism classes of principal $G$-bundles.
+ Combinatorially, we can specify a principal $G$-bundle on $M$ by assigning elements $g \in G$ to $1$-simplices in $X$.
+ This assignment satisfies a further cocycle condition on $2$-simplices, requiring it to be a simplicial $1$-cochain on $M$ with values in $G$.
+More abstractly, we see that this a functor $\mathcal{O}(X) \to BG$.
+Indeed, note that since $BG$ is a groupoid, we obtain by the observations in subsection \ref{sec:groupoidify} that this functor is equivalent to a map of simplicial sets $X \to BG$.
+This motivates the following definition.
 
-In traditional Dijkgraaf--Witten theory the fields are principal bundles for a finite
-group $G$. These form a groupoid $\Bun_G$ with morphisms given by gauge
-transformations. An alternative, but equivalent, description of the collection of all fields on a manifold $M$ is as the mapping space $\Map(M,BG)$. The connection
-between the two description is through the homotopy hypothesis~\cite{} which is
-an equivalence between $\infty$-groupoids and topological spaces. Concretely,
-the space $\Map(M,BG)$ is aspherical and its fundamental groupoud $\Pi_1
-(\Map(M,BG))$ is equivalent to $\Bun_G(M)$.
-This has an explicit description in terms of a triangulation of $X$ of $M$.
+\begin{definition}
+\label{def:DWgaugefield}
+    A \emph{combinatorial $G$-gauge field} is a functor $A: \mathcal{O}(X) \to BG$.
+\end{definition}
 
-\color{red} Mention cochains and lattice field theories. Note that this actually
-depends on the triangulation \color{black}
+Topologically, the space $\Map(X,BG)$ of gauge fields is aspherical and its fundamental groupoud $\Pi_1(\Map(X,BG))$ is equivalent to the groupoid $\mathcal{F}//\mathcal{G}$ of principal bundles over $M$.
+ Now let $\omega: BG \to B^n \C^\times$ be a map of simplicial sets.
+ This map represents a cohomology class in $H^n(BG; \C^\times)$ known as the twist, which allows one to define the exponentiated action functional of Dijkgraaf-Witten theory as
+\[
+e^{S(A)} := \int_X A^*(\omega),
+\]
+where $A^*$ is the pullback along $A: X \to BG$.
+In this combinatorial context, the integral is defined by evaluating on the fundamental class.
+This allows for a rigorous definition of the partition function 
+
+\begin{definition}
+\label{def:partitionfunctionDW}
+The \emph{partition function} of $\omega$-twisted Dijkgraaf-Witten theory on the spacetime $X$ is the finite sum
+\[
+Z(X) = \sum_{A \in [X,BG]} \int_X A^*(\omega) \in \C^\times.
+\]
+\end{definition}
+
+We will now explain in low dimensions how this is a special case of a state-sum in the sense of Definition \ref{def:statesuminvariant}.
+
+We start in dimension two.
+Note that a map $\omega: BG \to B^2 \C^\times$ of simplicial sets gives an explicit group $2$-cocycle on $G$, which we again denote by $\omega$.
+We will assume $\omega$ is a unital cocycle in the sense that $\omega(g,1) = \omega(1,g) = 1$. \LS{Not assuming this probably messes up some of the normalizations below}
+Define the $\omega$-twisted group algebra $\C^\omega G$ as the complex algebra with generators $x_g$ for every $g \in G$ and relations
+\[
+x_g x_h = \omega(g,h) x_{gh}.
+\]
+It is a well-known fact that a unital and counital Frobenius structure is uniquely determined by specifying the counit, which we define to be
+\[
+\epsilon(x_g) = \delta_{g,e} |G|.
+\]
+The normalization is chosen in a way that the induced Frobenius algebra is $\Delta$-separable.
+Explicitly, the coproduct is given by
+\[
+\Delta(x_g) = \frac{1}{|G|} \sum_{h \in G} x_g x_{h}^{-1} \otimes x_h.
+\]
+This Frobenius algebra gives a two-dimensional state-sum model $F$ as explained in Section \ref{sec:2D}.\LS{We could also mention the twisted group algebra already in the 2d section}
+We claim that the partition function of a triangulated surface $\Sigma$ gives the state sum invariant $F(\sigma_\Sigma)$ in the sense of \ref{def:statesum}, compare \cite{oritthesis}. \LS{explain this or not necessary?}
+
+We now consider three-dimensional Dijkgraaf-Witten theory.
+In this case, we will consider the state-sum data with values in $B\CYCat$ given by $G$-graded vector spaces $\Vect^\omega_G$ with associator $\omega$, see Example \ref{ex:3dDW}.
+The state-sum is then the Turaev-Viro invariant based on $\Vect^\omega_G$, which is easily seen to be the partition function of Dijkgraaf-Witten theory. 
+In four dimensions, a state-sum has been constructed for spherical fusion $2$-categories \cite{douglasreutter}. \LS{maybe we need to mention this earlier}
+Again there exists an $\omega$-twisted $G$-graded spherical fusion $2$-category for $\omega \in H^4(BG; \C^\times)$ and the corresponding state-sum agrees with Dijkgraaf-Witten theory \cite[3.4.2.]{douglasreutter}.
+
+More generally, we expect a state-sum for $n$-dimensional Dijkgraaf-Witten theory to be constructed from a map of simplicial sets $\omega: BG \to B^n \C^\times$ as follows.
+Consider the canonical inclusion $B^n \C^\times \to B^{n-1} \Vect \to (n-1)\Cat_\C$ into \textcolor{red}{many adjectives} $\C$-linear $(n-1)$-categories. \LS{What kind of orbifold completion of $B^{n-1} Vect$ should this be? something something cauchy/Karoubi complete? We also need full dualizability of $(n-1)\Cat_\C$, so finite-dim homs, finitely many simples...?}
+ The limit of the functor $BG \to (n-1)\Cat_\C$ defines a $\C$-linear $(n-1)$-category with a single object, i.e. a monoidal $(n-2)$-category $\Vect^G_\omega$ \LS{or should we do colimit? Or maybe it does not matter}.
+ The resulting category generalizes the $\omega$-twisted group algebra for the case $n = 2$ and the category of $\omega$-twisted $G$-graded vector spaces for the cases $n = 3$ and $n=4$.
+ The monoidal structure generalizes the multiplication on $\C^\omega G$ and the monoidal structure on $\omega$-twisted $G$-graded vector spaces respectively.
+ We expect to be able to associate state-sum data to this in $(n-1)\Cat_\C$.
+We assign $\Vect^G_\omega$ to $1$-simplices, to $2$-simplices we assign the tensor product on this category and to $3$-simplices we assign the associator and we continue. \LS{Is there a nice way to describe all of these together more coherently?}
+Note that because of \textcolor{red}{many adjectives}, the tensor product has an adjoint $\mathcal{C} \to \mathcal{C} \boxtimes \mathcal{C}$, which allows us to compose $2$-simplices in different directions.
+...
+
+In the rest of the section, we will speculate about the relationship between more general state sums and physics, in particular for noninvertible symmetries.
+Indeed, motivated by the example of Dijkgraaf-Witten theory, we are led to conclude that in case the state-sum data is constructed freely from a (higher) group $G$, we can thing of the state-sum values as the result of gauging the (higher form) symmetry $G$.
+Our hope is that the setup of this article will allow us to generalize examples of the above type from higher groups $G$ to higher categories, yielding a mathematically rigorous way to gauge noninvertible symmetries.
+Note that if we would have used the simplicial set $X$ as a higher groupoid in place of the category $\mathcal{O}(X)$, there would be no hope to see non-invertible gauge fields as every map into a higher category would factor through its maximal subgroupoid.
+
+In the example of Dijkgraaf-Witten theory in a general dimension, we constructed a fusion $(n-2)$-category $C$ and looked at the induced state sum with values in $(n-1)\Cat_\C$.
+Moreover, these fusion categories their simple objects labeled by the elements of $G$.
+For example, in the case of $2$-dimensional Dijkgraaf-Witten, the group ring has a canonical basis coming from a fusion ring-like structure. \LS{Lukas asked: How to make simple things compatible between different layers?}
+For those cases, we would like define a field on $X$ as a consistent assignment of simple objects of $C$ to simplices of $X$.
+In other words, we would like to define a \emph{$C$-valued lattice gauge field on $X$} as a functor $\mathcal{O}(X) \to BC$, which is required to land in the simple objects. 
+We immediately arrive at a problem: the tensor product of simple objects is only a sum of simple objects in general. 
+Therefore simple objects are not a subcategory of $BC$ and so lattice gauge fields are not a subcategory of $\Fun(\mathcal{O}(X), BC)$.
+Therefore we will from work with all of $\Fun(\mathcal{O}(X), BC)$, keeping in mind that these should be thought of as `formal $\C$-linear combinations of lattice gauge fields'.
+...
+
+An action functional on $X$ in this formulation, should be a functor $S: \Fun(\mathcal{O}(X), BC) \to B^{n-1} \C^\times$.
+Here we defined $S$ not only on the simple object-valued fields, so that the fusion product is correctly encoded.
+Actually, we will only consider action functionals that are `functorial in spacetime'.
+By the universal property of $\mathcal{O}(X)$ this means:
+
+\begin{definition}
+    An \emph{action functional for a $C$-lattice gauge theory} is ....
+\end{definition}
+
+Explicitly, the data of an action functional gives a map from lattice gauge fields on $\Delta^n$ to $\C$ such that....
+On a general $X$, this induces a map $\Fun(\mathcal{O}(X), BC) \to \C$...
+
+Then the path integral has to be a sort of sum....
+
+\textcolor{red}{
+Outline of the rest
+\begin{enumerate}
+    \item cases where one has an action functional
+    \item relationship between the action functional $S$ and the state sum $F$ 
+    \item $F(\sigma_X)$ is the partition function?
+    \item comment on non-invertible gauge theories (Lukas: there might be a problem with formulating classical gauge fields for non-invertible symmetries)
+\end{enumerate}}
+
+
+
+TODO: read old text and save things that make sense.
+
+\textcolor{red}{old text starts}
+
+\color{red} Mention cochains and lattice field theories. \color{black}
 
 The first task in our construction of non-invertible Dijkgraaf--Witten theory
 is to find an appropriate generalisation of the space of fields. A first guess
@@ -37,16 +151,7 @@ non-invertible gauge structure by a higher gauge group $|BA|$. Higher gauge
 theoretic versions of Dijkgraaf--Witten theory have been studied
 extensively~\cite{some thing}, but are not what we are interested in here.
 
-We propose a different approach to overcome these problems which generalises the
-lattice formulation outlined above. The key observation is that as explained in
-Section~... to a triangulation together with a branching structure one can naturally associate an $d$-category $\Or(X)$. Restricting to the $n$-skeleton
-of $X$ gives a $n$-category $\Or_n(X)$.
-\begin{definition}
-Let $\mathcal{C}$ be a fusion $n$-category and $X$ a triangulation together with
-the choice of branching structure a triangulation of an oriented $d$-dimensional manifold.
-The linear $n+1$-category $\mathcal{F}_\mathcal{C}(X)$ of
-\emph{$\mathcal{C}$-lattice gauge fields on $X$} is the category of functors from $\Or_{n+1}(X)$ to the $n+1$-category $B\mathcal{C}$, which is the delooping of $\mathcal{C}$.
-\end{definition}
+
 
 \color{red}
 Explicit description and relation to DW.

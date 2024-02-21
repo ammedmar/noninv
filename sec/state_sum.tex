@@ -1,11 +1,12 @@
 % !TEX root = ../noninv.tex
 
 \section{State sum data}
+\label{sec:statesum}
 
 \subsection{Categorical cones}
 
 A \textit{diagram} in $\cC$ is a functor $F \colon \cJ \to \cC$ from a small category $\cJ$.
-A \textit{cone} under $D$ with \textit{vertex} $c$ is a natural transformation from $F$ to the constant functor with value $c$.
+A \textit{cone} under $F$ with \textit{apex} $c$ is a natural transformation from $F$ to the constant functor with value $c$.
 
 \subsection{Street diagrams}
 
@@ -47,7 +48,7 @@ we define its \textit{oriented} version as
 
 An (\textit{oriented}) \textit{Street $n$-cone} is a cone under the $n$-truncated (oriented) Street diagram.
 
-By the universal property of colimits, an (oriented) Street $n$-cone with vertex $\cC$ induces an $n$-functor $\cO(X) \to \cC$ (resp. $\cO_\theta(X) \to \cC$) for any triangulated $n$-manifold $M \cong \bars{X}$ (with orientation $\theta$).
+By the universal property of colimits, an (oriented) Street $n$-cone with apex $\cC$ induces an $n$-functor $\cO(X) \to \cC$ (resp. $\cO_\theta(X) \to \cC$) for any triangulated $n$-manifold $M \cong \bars{X}$ (with orientation $\theta$).
 
 \subsection{Extendable Street cones}
 
@@ -105,22 +106,29 @@ For reasons which become clear in a moment we require these to also extend to or
 Denote by $O^n$ the diagram in higher categories formed by $O(-)$ applied to all oriented simplicies up to dimension $n+1$ and embeddings between them.
 
 \begin{definition}
+\label{def:statesum}
 	\emph{State sum data in $\cC$} is a cone under the diagram $O$ in higher categories with apex $\cC$.
 \end{definition}
 
 The universal property of the colimit implies that this data induces a functor $F \colon \oriental(X) \longrightarrow C$ for every triangulation $X$ of a manifold $M$.
 We call the collection of all $n$-morphisms associated to top dimensional simplicies the fundamental class $\sigma_X$ of $\oriental(X)$.
-Note that these morphisms are not necessarily compossible in $\oriental(X)$.
-They are however locally compossible.
+Note that these morphisms are not necessarily composable in $\oriental(X)$.
+They are however locally composable.
 The fact that $\cC$ is fully dualizable
-allows us to compose the image $F(\sigma)$ inside $\cC$.
-Defining an endomorphism
+allows us to compose the image $F(\sigma_X)$ inside $\cC$.
+This defines an endomorphism
 $F(\sigma_X)\in \Omega^n\cC=\C $ and hence a complex number.
-We define the state sum invariant $Z(M)=F(\sigma_X)$ for any triangulation $X$ of $M$.
-For this to be well defined we need to show that the answer is independent of the chosen triangulation.
+
+\begin{definition}
+    \label{def:statesuminvariant}
+If $|X| = M$ is a triangulated $n$-manifold and $F$ is state sum data in the fully dualizable category $\cC$, the \emph{state sum invariant} is the number $F(\sigma_X) \in \C$.
+\end{definition}
+
+We can define the state sum invariant of a manifold $M$ as $Z(M)=F(\sigma_X)$ for any triangulation $X$ of $M$.
+For this to be well defined, we need to show that the answer is independent of the chosen triangulation.
 
 \begin{theorem}
-	For two different branched triangulations $X$ and $X'$ of a compact $n$-dimensional manifold $M$ we have $F(\sigma_X)=F(\sigma_{X'})$.
+	For two different branched triangulations $X$ and $X'$ of a compact $n$-dimensional manifold $M$, we have $F(\sigma_X)=F(\sigma_{X'})$.
 \end{theorem}
 
 \begin{proof}
@@ -150,4 +158,21 @@ The answer is by definition triangulation invariant.
 
 
 In the 2-dimensional example discussed in the previous section this recovers the known description of the vector space of the state sum field theory.
+
+
+\subsection{The localization of $\mathcal{O}(X)$}
+\label{sec:groupoidify}
+\LS{Feel free to change content or location. Everything here super imprecise}
+
+Sometimes in practice, we want to consider functors out of $\mathcal{O}(X)$ that land in a (higher) groupoid.
+For example, we will see in Section \ref{sec:pathintegral} that a Dijkgraaf-Witten field is a functor $\mathcal{O}(X) \to BG$.
+The inclusion functor $\infty-\Gpd \hookrightarrow \wCat$ has a left adjoint `groupoidification' $\mathcal{C} \mapsto \mathcal{C}^{gp}$ given by forcefully inverting morphisms at all levels.
+In the models we chose in this article, it is given by geometrically realizing the nerve of the $\omega$-category.
+We see that there is a canonical bijection between functors $\mathcal{O}(X) \to BG$ and functors $\mathcal{O}(X)^{gp} \to BG$ between higher groupoids.
+By the homotopy hypothesis, the latter takes place in maps of homotopy types, which are amenable to computations in algebraic topology.
+We moreover claim that $\mathcal{O}(X)^{gp}$ is a very specific homotopy type:
+
+\begin{lemma}
+    The spaces $\mathcal{O}(X)^{gp}$ and $X$ are homotopy equivalent.
+\end{lemma}
 

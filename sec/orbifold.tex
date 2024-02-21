@@ -1,26 +1,28 @@
 % !TEX root = ../noninv.tex
 
-\section{Connection to orbifold data and Turaev-Viro state sum models}
+\section{Connection to the generalized orbifold construction}
 
 LUKAS
 
 Many ideas presented in this note are closely related and inspired by the orbifold construction of topological field theories~\cite{carqueville2019orbifolds}. In this setting the higher categorical structures we try to highlight here are encoded in a non-extended topological field theory with defects. Roughly speaking these are an extension of topological field theories which can also be evaluated on stratified manifolds where the strata are allowed to be labelled.
 
-We think of the defect topological field theory as encoding the data of the higher category $\cC$ in an implicit way. Note that also in the context of blob homology~\cite{blob} and the work of Ayala, Francis, and Rozenblyum~\cite{Ayala2015ASH} stratified manifolds are used to describe higher (pivotal) fully dualizable categories.
+We think of a defect topological field theory as encoding the data of the higher category $\cC$ in an implicit way. Also in the context of blob homology~\cite{blob} and the work of Ayala, Francis, and Rozenblyum~\cite{Ayala2015ASH} stratified manifolds are used to describe higher (pivotal) fully dualizable categories.
 Under this dictionary the labels of codimension $k$-strata are expected to correspond to $k$-morphisms.
 The connection between defect field theories and pivotal categories has been made precise in dimensions 1, 2, and 3~\cite{Davydov:2011kb, CARQUEVILLE2020107024}.
-The goal of the orbifold construction is now to construct new topological field theories from the given defect theory.
+The goal of the orbifold construction is now to construct new topological field theories from a fixed defect theory.
 The input datum for the construction are chosen defect labels $\mathcal{A}=(A_1,\dots A_n^{\pm})$ for the Poincaré dual of all simplicies up to the top dimensions.
 For the top dimension one has to chose 2 possible labels corresponding to its two potential orientation.
-These have to satisfy conditions we will explain later.
-If we think of the defect labels as elements in a higher category we see that orbifold data exactly correspond to oriented state sum data as we defined it above.
-The orbifold construction now proceeds to define invariants of $n$-dimensional manifolds by picking a triangulation of them and labelling the Poincaré dual cell decomposition with the fixed orbifold datum $\mathcal{A}$.
-Now the partition function of the orbifold theory evaluated on $M$ is the value of the defect field theory on this stratified manifold.
-Using the dictionary that evaluation of the defect field theory corresponds to the composition of morphisms this exactly reproduces the state sum invariant we defined above.
-Our work can be understood as making the higher categorical structures underlying the orbifold construction in terms explicit in terms of orientals.
+These have to satisfy conditions we will explain momentarily. 
+
+If we think of the defect labels as elements in a higher category we see that orbifold data exactly correspond to oriented Street cones as we defined them above.
+The orbifold construction defines invariants of $n$-dimensional manifolds by picking a triangulation of them and labelling the Poincaré dual cell decomposition with the fixed orbifold datum $\mathcal{A}$.
+The partition function of the orbifold theory evaluated on $M$ is the value of the defect field theory on this stratified manifold.
+Using the dictionary that evaluation of the defect field theory corresponds to the composition of morphisms which exactly reproduces the state sum invariant we defined above.
+
+Our work can be understood as making the higher categorical structures underlying the orbifold construction explicit in terms of orientals.
 These have so far largely been implicit.
 However, we note that there is some work in low dimensions~\cite{carqueville2016orbifoldcompletion,3DOrb}.
 
-We now explain how this can be used to conclude that the state sum model build in Section~\ref{sec:3D} reproduces the Turaev-Viro model.
-The number this assigns to a branched triangulated manifold is directly seen to agree with the one constructed via the orbifold construction from a spherical fusion category. The closesed exposit to the situation here is Section 5.2 of~\cite{3DOrb} which is based on~\cite{Carqueville:2018sld}. Hence we can conclude from the results in~\cite{Carqueville:2018sld} that the invariance defined in Section~\ref{sec:3D} is triangulation independent and recovers the Turaev-Viro state sum model.
+Let us come back to the oriented Street 3-cone constructed from a spherical fusion category in Section~\ref{sec:3D}.
+The number this assigns to a branched triangulated manifold is directly seen to agree with the one constructed via the orbifold construction from a spherical fusion category. The closest exposition to the situation here is Section 5.2 of~\cite{3DOrb} which is based on~\cite{Carqueville:2018sld}. Hence we can conclude from the results in~\cite{Carqueville:2018sld} that the invariant defined in Section~\ref{sec:3D} is triangulation independent and recovers the Turaev-Viro state sum model.
 
