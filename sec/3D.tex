@@ -2,11 +2,10 @@
 
 \section{Examples in 3 dimensions and Turaev-Viro theories}\label{sec:3D}
 
-LUKAS
+In this section we will explain how the higher categorical perspective on state sum models proposed here can be used recover the well known Turaev-Viro model~\cite{Turaev:1992hq,Barrett:1993ab}. The proof that the Street cone constructed in this section defines state sum data relies on the connection to the orbifold construction which we discuss in the next section.
 
-In this section we will explain how the higher categorical perspective on state sum models proposed here can be used recover the well known Turaev-Viro model. The proof that the Street cone constructed in this section defines state sum data relies on the connection to the orbifold construction which we discuss in the next section.
-
-Before we can try to construct 3-dimensional state sum data we need to fix an appropriate pivotal 3 category $\cC$. For this we will use the Euler completion of the delooping $B\CYCat$ of semi-simple Calabi-Yau categories~\cite{3DOrb} which we define now:
+Before we can try to construct 3-dimensional state sum data we need to fix an appropriate target 3-category $\cC$. Based on the results for two dimensional state sum models a first guess would be $\cC=B^2\Vect$. However, it turns out that this is to restrictive to lead to interesting examples. What allows us to construct interesting examples is a version of 2-vector spaces. In connection to topological field theories one usually uses Kapranov–Voevodsky 2-vector spaces~\cite{2Vect}. To be able to evaluate all the types of diagrams appearing in the state sum construction consistently additional structure on these 2-vector spaces are needed.     
+For this we will use the Euler completion of the delooping $B\CYCat$ of semi-simple Calabi-Yau categories~\cite{3DOrb} which we define now:
 
 \begin{definition}
 	A \emph{semisimple Calabi--Yau category} is a semi-simple linear category $\Ca$ with finitely many simple objects together with a linear
@@ -19,19 +18,29 @@ Before we can try to construct 3-dimensional state sum data we need to fix an ap
 	\end{itemize}
 We denote by $\CYCat$ the symmetric monoidal 2-category of semisimple Calabi--Yau categories, linear functors and natural transformations. The tensor product is the Delegine product which we denote by $\boxtimes$. 
 \end{definition}
-The trace is required to make $\CYCat$ a pivotal category, see~\cite[Proposition 5.6]{3DOrb}.  
-
-The Euler completion $E(B\CYCat)$ is defined in~\cite[Section 5.1.3]{3DOrb} and effectively allows one to include certain normalisation factors into the state sum model we construct later. Its objects consist of a pair of an object in $B\CYCat$ and of which there is only one $*$ and an invertible endomorphism $\psi \in \operatorname{Aut} (\id_{\id_*})=\C^\times$. The composition of morphisms is not influenced by introducing these aditional objects. However, they change the pivotal structure such that powers of $\psi$ will be inserted in bubbles. We need this small adjustment to get the right normalization factors. For more details we refere to~\cite[Section 5.1.3]{3DOrb}.  
+The trace is required to make $\CYCat$ a pivotal bicategory, see~\cite[Proposition 5.6]{3DOrb}.  
+The Euler completion $E(B\CYCat)$ is defined in~\cite[Section 5.1.3]{3DOrb} and effectively allows one to include certain normalisation factors into the state sum model we construct later. 
+Its objects consist of a pair of the object $*$ of $B\CYCat$ and an invertible endomorphism $\psi \in \operatorname{Aut} (\id_{\id_*})=\C^\times$. The composition of morphisms is not influenced by introducing these additional objects. However, they change the pivotal structure such that powers of $\psi$ will be inserted in bubbles. We need this small adjustment to get the right normalization factors. For more details we refer to~\cite[Section 5.1.3]{3DOrb}.  
 
 Let us now turn to oriented Street 3-cones with values in $E(B\CYCat)$. They consist of an inevitable complex number specifying the functor $\oriental_0 \to E(B\CYCat)$. A compatible functor $\oriental_1 \to E(B\CYCat)$ is completely detriment by specifying a Calabi-Yau category $\cC$. A functor out of $\oriental_2$ compatible with the choices so far corresponds to a functor $\otimes \colon \cC \boxtimes \cC \to \cC$. Finally there are two natural transformations $\alpha_+\colon \otimes \circ (\otimes \boxtimes \id ) \Longrightarrow \otimes \circ (\id \boxtimes \otimes )$ and $\alpha_-\colon \otimes \circ (\id \boxtimes \otimes ) \Longrightarrow \otimes \circ (\otimes \boxtimes \id )$ which correspond to the functors out of $\oriental_3^+$ and $\oriental_3^-$, respectively.    
 
-Specifying this data allows us to define an invariant of triangulated 3-dimensional manifolds. Among the many conditions required for an oriented 3-Street cone to be triangulation invariant one finds that $\alpha_+$ and $\alpha_-$ has to satisfy the well known pentagon equation. A natural place to look for state sum data are monoidal Calabi-Yau categories, where $\alpha_-$ and $\alpha_+$ are inverse of each other.\footnote{However, note that, there are no relations enforcing them to be inverse to each other in general. There is a notion of special 3-cone which would include this condition. The moves one has to impose in this case can be found in~\cite[Section 3.4]{carqueville2016orbifoldcompletion}}  
-
-The Turaev-Viro construction is based on a spherical fusion category
-\begin{definition}
-    spherical fusion category....
+Specifying this data allows us to define an invariant of triangulated 3-dimensional manifolds. Among the many conditions required for an oriented 3-Street cone to be triangulation invariant one finds that $\alpha_+$ and $\alpha_-$ has to satisfy the well known pentagon equation. A natural place to look for state sum data are monoidal Calabi-Yau categories, where $\alpha_-$ and $\alpha_+$ are inverse of each other.\footnote{However, note that, there are no relations enforcing them to be inverse to each other in general. There is a notion of special 3-cone which would include this condition. The moves one has to impose in this case can be found in~\cite[Section 3.4] {carqueville2016orbifoldcompletion}.}   
+A common source for those is 
+\begin{definition}[\cite{Barrett:1993zf}]
+A spherical fusion category is a $k$-linear rigid monoidal category $\Ca$ with simple unit and equipped with a pivotal structure such that left and right trace agree.  
 \end{definition}
+
 \begin{example}
-    ??
+\label{ex:3dDW}
+Let $G$, be a finite group. Any 3-cocycle $\omega$ on $G$ with values in $\C^\times$ can be used to define an associator on the category of $G$-graded finite dimensional vector spaces by  
+\begin{align*}
+\alpha^\omega \colon (V_g\otimes V_{g'}) \otimes V_{g''} & \longrightarrow V_g\otimes ( V_{g'} \otimes V_{g''}) \\
+(v_g\otimes v_{g'})\otimes v_{g''} & \longmapsto  \omega(g,g',g'') v_g\otimes (v_{g'}\otimes v_{g''})
+\end{align*}
+on homogeneous objects. The monoidal category $\Vect_G^\omega$ of $G$-graded vector spaces with associator given by $\omega$ inherits a natural spherical structure from the category of vector spaces. Both the left dual and right dual of a $G$ graded vector space $V=\oplus_{g\in G} V_g$ are $V^\vee = \oplus_{g\in G} V_{g^{-1}}^\vee $.  
 \end{example}
-Let $\mathcal{S}$ be a spherical fusion category the trace defines a canonical Calabi-Yau structure on $\mathcal{S}$ and hence $\mathcal{S}$ is an associative algebra in $\CYCat$ which we can use to define state sum data in $\Ca$ by sending the unique point in $\oriental_0$ to $(*,\dim (S)^{-\tfrac{1}{2}})$, where $\dim S = ...$ is the dimension of $S$. The 1-morphism in $\oriental_1$ is send to $S$ with its Calabi-Yau structure coming from the spherical trace. The 2-morphism in $\oriental_2$ is send to the tensor product functor $\otimes \colon S\boxtimes S \to S$. The 3-morphism in $\oriental_3^+$ is send to the associator and finally the 3-morphism in $\oriental_3^-$ to its inverse.
+Via the trace induced from the pivotal structure a spherical fusion category $S$ is, in particular, a monoidal category in $\CYCat$. For the constructs of a Street 3-cone from $S$ we have to specify in addition the value on $\oriental_0$. This is essentially a normalization factor which we choose to be $(*,\dim (S)^{-\tfrac{1}{2}})$, where $\dim S = \sum_i (\dim i)^2$ (the sum runs over isomorphism classes of simple objects) is the dimension of $S$.  
+\begin{theorem}\label{Thm: 3D example}
+Let $S$ be a spherical fusion category. The corresponding oriented Street 3-cone $\mathcal{F}_S$ is a state sum datum. The invariant of oriented 3-dimensional manifolds corresponding to $\mathcal{F}_S$ is the Turaev-Viro invariant based on $S$.  
+\end{theorem}
+We will not give a direct proof of this statement here. Though, it would be a standard, but long and tedious computation with spherical fusion categories. Instead we will take advantage of the connection to the generalized orbifold construction explained in the next section. In this setting the necessary computations to prove Theorem~\ref{Thm: 3D example} have already been carried out. 
