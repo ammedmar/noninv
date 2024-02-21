@@ -2,11 +2,6 @@
 
 \section{State sum data}
 
-\subsection{Categorical cones}
-
-A \textit{diagram} in $\cC$ is a functor $F \colon \cJ \to \cC$ from a small category $\cJ$.
-A \textit{cone} under $D$ with \textit{vertex} $c$ is a natural transformation from $F$ to the constant functor with value $c$.
-
 \subsection{Street diagrams}
 
 The \textit{$n$-truncated Street diagram} is the restriction of the Street functor $\oriental$ to the $n$-truncation of the delta category.
@@ -32,7 +27,7 @@ Simplifying the depiction of this diagram to
 \]
 we define its \textit{oriented} version as
 \[
-\begin{tikzcd}[column sep=small, row sep=0]
+\begin{tikzcd}[column sep=normal, row sep=0]
 	& & & &[-5pt] \oriental_n \ \ \\
 	\oriental_0
 	\arrow[r, Rightarrow] & \oriental_1
@@ -48,10 +43,6 @@ we define its \textit{oriented} version as
 An (\textit{oriented}) \textit{Street $n$-cone} is a cone under the $n$-truncated (oriented) Street diagram.
 
 By the universal property of colimits, an (oriented) Street $n$-cone with vertex $\cC$ induces an $n$-functor $\cO(X) \to \cC$ (resp. $\cO_\theta(X) \to \cC$) for any triangulated $n$-manifold $M \cong \bars{X}$ (with orientation $\theta$).
-
-\subsection{Extendable Street cones}
-
-ANIBAL
 
 \subsection{Pachner moves}
 
