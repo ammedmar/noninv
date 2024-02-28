@@ -2,14 +2,14 @@
 
 \section{Triangulated oriented manifolds as higher categories}
 
-The purpose of this section is to describe how to think of triangulated oriented $n$-dimensional manifold an $n$-categories.
+The purpose of this section is to describe how to think of a triangulated oriented $n$-manifold as an $n$-categories.
 
 \subsection{Cones and colimits}
 
 We recall some basic notions from category theory and refer the reader to any standard textbook on the subject for further context and details.
 
 Let us consider a small category $\cJ$ and a category $\cC$.
-A \textit{diagram} in $\cC$ of shape $\cJ$ is another name for a functor from $\cJ$ to $\cC$.
+A \textit{diagram} in $\cC$ of shape $\cJ$ is a functor from $\cJ$ to $\cC$.
 A \textit{cone} under a diagram $F \colon \cJ \to \cC$ is an object $c$ of $\cC$ together with a natural transformation from $F$ to the constant functor $c$.
 The \textit{colimit} of a diagram $F \colon \cJ \to \cC$, denoted $\colim_\cJ F$, is the cone under $F$ with the following universal property: Given any cone $c$ under $F$, there is a unique morphism from $\colim_\cJ F$ to $c$ making the following diagram commute
 \[
@@ -21,14 +21,38 @@ The \textit{colimit} of a diagram $F \colon \cJ \to \cC$, denoted $\colim_\cJ F$
 \end{tikzcd}
 \]
 for each morphism $j \to j'$ in $\cJ$.
-One refers to a category $\cC$ for which this universal cone exists for each $\cJ$ as \textit{cocomplete}.
+
+One refers to a category $\cC$ for which this universal cone exists for every diagram as \textit{cocomplete}.
+The \textit{cocompletion} $\overline\cC$ of a category $\cC$ is defined by the following properties: (1) $\overline\cC$ is cocomplete, (2) there is a fully faithful functor $\cC \hookrightarrow \overline\cC$, (3) for any functor $F \colon \cC \to \cD$ to a cocomplete category $\cD$, there is a unique colimit-preserving functor $\overline F \colon \overline\cC \to \cD$ making the diagram
+\[
+\begin{tikzcd}
+	\cC \arrow[d,hook] \arrow[r,"F"] & \cD \\
+	\overline\cC \arrow[ur,dashed,"\overline F"'] &
+\end{tikzcd}
+\]
+commute.
+
+For a small category $\cC$, a model for its cocompletion is $\Fun(\cC^\op, \Set)$ together with the \textit{Yoneda embedding} $\yoneda$, sending $c$ to $\cC(-,c)$.
+This claim follows from the fact that any functor $X \colon \cC^\op \to \Set$ can described as a colimit of \textit{representable} objects, i.e., those in the image of $\yoneda$.
+To see this, consider the category $\cC^\downarrow\hspace{-2pt}X$ whose objects are morphism $\yoneda(c) \to X$ and whose morphisms are commuting triangles.
+Let $\pi \colon \cC^\downarrow\hspace{-2pt}X \to \Fun(\cC^\op)$ be the functor that forgets $X$, then
+\[
+\colim_{\cC^\downarrow\hspace{-1.5pt}X} \pi \cong X.
+\]
+Now, to verify (3), consider any functor $F \colon \cC \to \cD$ to a cocomplete category and define
+%$\overline{F}$ satisfying the properties of (3) by
+\[
+\overline{F}(X) \defeq \colim_{\cC^\downarrow\hspace{-1.5pt}X} (F \circ \pi).
+\]
+We refer to it as the \textit{canonical extension} of $F$.
+%To write the composition $(F \circ \pi)$ we used that $\cC$ and $\yoneda(\cC)$ are naturally equivalent.
 
 \subsection{$\simplex$-sets}
 
 We set our basic notation and refer the reader to \cite{friedman2021simplicial} for a leisurely exposition of the theory of simplicial and $\simplex$-sets.
 For us, the latter will play a more important role.
 
-The \textit{delta category} $\simplex$ has objects the posets $[n] = \set{0 < \dots < n}$ for $n \in \N$ and its morphisms are \textit{strictly} order preserving maps.
+The \textit{delta category} $\simplex$ has objects the posets $[n] = \set{0 < \dots < n}$ for $n \in \N$ and morphisms the strictly order preserving maps.
 Diagrammatically,
 \[
 \begin{tikzcd}
@@ -42,22 +66,24 @@ Diagrammatically,
 \end{tikzcd}
 \]
 where $\delta_i$ is the $i^\th$ \textit{coface map}.
-
-The category of \textit{$\simplex$-sets} and \textit{$\simplex$-maps} $\Fun(\simplex^\op, \Set)$ is denoted by $\dSet$, and the \textit{standard $n$-simplex} $\dSet(-, [n])$ by $\simplex^n$.
-
-For a $\simplex$-set $X$ the elements in $X_n \defeq X[n]$ are referred to as its \textit{$n$-simplices}, and $\face_i \defeq X \delta_i$ is the \textit{$i^\th$-face map}.
-
-For any $n$-simplex $x$ there is a unique $\simplex$-map $\iota_x \colon \simplex^n \to X$, its \textit{characteristic map}.
+Its cocompletion $\Fun(\simplex^\op, \Set)$, the category of \textit{$\simplex$-sets} and \textit{$\simplex$-maps}, is denoted by $\dSet$.
+We denote the image of $[n]$ via the Yoneda embedding by $\simplex^n$ and refer to it as the \textit{$n^\th$ representable} $\simplex$-set.
+%The Yoneda embedding $\yoneda \colon \simplex \to \dSet$ is the full and faithful functor sending $[n]$ to the $\simplex$-set $\simplex^n$ defined by sending $[m] \to [m']$ to the function $\dSet\big([m'], [n]\big) \to \dSet\big([m], [n]\big)$ defined by precomposition.
+For a $\simplex$-set $X$ the elements in $X_n \defeq X[n]$ are its \textit{$n$-simplices}, and the map $\face_i \defeq X \delta_i$ its \textit{$i^\th$-face map}.
+We use \textit{vertices} and \textit{edges} as alternative terms for $0$- and $1$-simplices respectively.
+For any $n$-simplex $x$ there is a unique $\simplex$-map $\iota_x \colon \simplex^n \to X$, its \textit{characteristic map}, with $\iota_x(\id_{[n]}) = x$.
 Furthermore, any $\simplex$-map $\simplex^n \to X$ is the characteristic map of an $n$-simplex.
-These maps can be considered to be the objects of a category $\deltaover{X}$ whose morphisms are commuting triangle
-\[
-\begin{tikzcd}[column sep=-2pt, row sep=small]
-	\simplex^{n_1} \arrow[dr] \arrow[rr] & & \simplex^{n_2}  \arrow[dl] \\
-	& X &
-\end{tikzcd}
-\]
-of $\simplex$-maps.
-Denoting the canonical functor $\deltaover{X} \to \simplex$ by $\pi$ we have
+These define the objects of the category $\deltaover{X}$ and, as described in the previous section,
+%These maps can be considered to be the objects of a category $\deltaover{X}$ whose morphisms are commuting triangle
+%\begin{equation}\label{eq:triangle in overcat of simplex cat}
+%	\begin{tikzcd}[column sep=-2pt, row sep=small]
+%		\simplex^{n_1} \arrow[dr] \arrow[rr] & & \simplex^{n_2}  \arrow[dl] \\
+%		& X &
+%	\end{tikzcd}
+%\end{equation}
+%of $\simplex$-maps.
+%We define a functor $\pi \colon \deltaover{X} \to \dSet$ by sending the morphism \eqref{eq:triangle in overcat of simplex cat} to $\simplex^{n_1} \to \simplex^{n_2}$.
+%Thinking of $\pi$ as a diagram we have
 \[
 X \cong \colim_{\deltaover{X}} \pi.
 \]
@@ -72,7 +98,7 @@ Together with their usual face inclusions these define a functor
 	[n] &\mapsto \, \gsimplex^n
 \end{split}
 \]
-and the \textit{geometric realization} of a $\simplex$-set $X$ is
+and the \textit{geometric realization} of $\simplex$-sets is defined as its canonical extension:
 \[
 \bars{X} \defeq \colim_{\deltaover{X}}(\bars{-} \circ \pi).
 \]
@@ -97,7 +123,7 @@ A \textit{triangulation} of $M$ is a homeomorphism $M \cong \bars{X}$, where $X$
 
 Each geometric simplex is equipped with a canonical orientation induced from Euclidean space.
 If $M \cong \bars{X}$ is an oriented $n$-manifold, then each $\gsimplex^n \to M$ induced by a characteristic map either preserves or reverses orientation.
-Let us consider two copies of the standard $n$-simplex, denoted $\simplex^n_+$ and $\simplex^n_-$, and define the category $\widedeltaover{X}$ to have objects characteristic maps $\simplex^m \to X$ if $m < n$, and, for each characteristic map $\iota_x \colon \simplex^n \to X$, an object $\iota_x \colon \simplex^n_+ \to X$ or $\iota_x \colon \simplex^n_- \to X$ depending on if the smooth map induced by $\iota_x$ preserves or reverses orientation.
+Let us consider two copies of the standard $n$-simplex, denoted $\simplex^n_+$ and $\simplex^n_-$, and define the category $\widedeltaover{X}$ to have objects all characteristic maps $\simplex^m \to X$ if $m < n$, and, for each characteristic map $\iota_x \colon \simplex^n \to X$, an object $\iota_x \colon \simplex^n_+ \to X$ or $\iota_x \colon \simplex^n_- \to X$ depending on if the smooth map induced by $\iota_x$ preserves or reverses orientation.
 
 \subsection{Oriented truncations}
 
@@ -133,14 +159,14 @@ The Street categories, together with certain natural inclusion between them, def
 	[m] &\mapsto \, \cO_m
 \end{split}
 \]
-and the \textit{categorical realization} of an $n$-dimensional simplicial set $X$ is defined by
+and the \textit{categorical realization} of $n$-dimensional simplicial sets is its canonical extension:
 \[
 \oriental(X) = \colim_{\deltaover{X}} (\oriental \circ \pi).
 \]
 
 \subsection{Oriented categorical realization}
 
-We denote by $\oriental_n^\op$ the same category as $\oriental_n$ but with the top dimensional morphism going in the opposite direction.
+We denote by $\oriental_n^\op$ the same $n$-category as $\oriental_n$ but with the top dimensional morphism going in the opposite direction.
 We obtain a functor $\widetilde{\oriental} \colon \widetilde{\simplex}_n \to \nCat$ by sending $[n]^+$ and $[n]^-$ to $\oriental_n$ and $\oriental_n^\op$ respectively.
 
 If $M \cong \bars{X}$ is a triangulated oriented $n$-manifold, we define its categorical realization as
