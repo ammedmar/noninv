@@ -1,3 +1,55 @@
+Question: Are all loop-free Pachner moves induced from cone extensions?
+Question: Is there a loop-free Pachner theorem:
+\begin{center}
+	\begin{tabular}{|c|c|}
+		\hline
+		Type & Theorem \\ \hline
+		Loop free & Unknown \\
+		Oriented & Yes \\
+		Branched & Yes \\
+		Traditional & Yes \\ \hline
+	\end{tabular}
+\end{center}
+
+
+
+\subsection{Street diagrams}
+
+The \textit{$n$-truncated Street diagram} is the restriction of the Street functor $\oriental$ to the $n$-truncation of the delta category.
+Diagrammatically it is given by
+\[
+\begin{tikzcd}
+	\oriental_0
+	\arrow[r,shift left=3pt, "\oriental{\delta_0}"] \arrow[r,shift right=3pt, "\oriental{\delta_1}"'] & \oriental_1
+	\arrow[r,shift left=5pt, "\oriental{\delta_0}"] \arrow[r,shift right=5pt, "\oriental{\delta_2}"'] \rar &
+	\dotsb
+	\arrow[r,shift left=5pt, "\oriental{\delta_0}"] \arrow[r,shift right=5pt, "\oriental{\delta_n}"', "\scalebox{0.6}{$\vdots$}"] &
+	\oriental_{n} \ .
+\end{tikzcd}
+\]
+Simplifying the depiction of this diagram to
+\[
+\begin{tikzcd}
+	\oriental_0
+	\arrow[r, Rightarrow] & \oriental_1
+	\arrow[r, Rightarrow] & \dotsb
+	\arrow[r, Rightarrow] & \oriental_n \ ,
+\end{tikzcd}
+\]
+we define its \textit{oriented} version as
+\[
+\begin{tikzcd}[column sep=normal, row sep=0]
+	& & & &[-5pt] \oriental_n \ \ \\
+	\oriental_0
+	\arrow[r, Rightarrow] & \oriental_1
+	\arrow[r, Rightarrow] & \dotsb
+	\arrow[r, Rightarrow] & \oriental_{n-1}
+	\arrow[ur, Rightarrow, bend left] \arrow[dr, Rightarrow, bend right] & \\
+	& & & & \oriental_n^\op \ .
+\end{tikzcd}
+\]
+
+
 %For any $\omega$-category $\cat{C}$, the collection of natural functors $\cO(X) \to \cC$ is in bijection with that of cones under $\cO$ with apex $\cat{C}$.\anibal{Maybe there is more structure than just sets.}
 
 %\subsection{Higher categories and Street orientals}
